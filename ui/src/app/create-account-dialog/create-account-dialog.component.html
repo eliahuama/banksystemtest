@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Create Account</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Initial Balance</mat-label>
+    <input matInput [(ngModel)]="data.balance" type="number">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button cdkFocusInitial color="primary" [mat-dialog-close]="data.balance">Create</button>
+</div>

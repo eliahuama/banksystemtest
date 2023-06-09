@@ -20,7 +20,19 @@ builder.Services.RegisterBusiness();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-}); ;
+});
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
 
 // Adding Logging   
@@ -47,6 +59,7 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
+app.UseCors("AllowAllOrigins");
 // Configure Swagger middleware
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BankSystem v1"));

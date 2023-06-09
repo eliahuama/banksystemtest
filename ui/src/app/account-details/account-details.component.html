@@ -1,0 +1,12 @@
+<div *ngIf="account">
+  <h2>Account Details:</h2>
+  <p>
+    <strong>Id:</strong> {{account.id}}<br>
+    <strong>User Id:</strong> {{account.userId}}<br>
+    <strong>Balance:</strong> {{account.balance}}
+  </p>
+
+  <!-- Buttons for Withdraw and Deposit operations -->
+  <button mat-raised-button color="primary" (click)="withdraw(account.id)">Withdraw</button>
+  <button mat-raised-button color="primary" (click)="deposit(account.id)">Deposit</button>
+</div>

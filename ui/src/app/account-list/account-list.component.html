@@ -1,0 +1,33 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Account Column -->
+      <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Account ID </th>
+          <td mat-cell *matCellDef="let account"> {{account.id}} </td>
+      </ng-container>
+
+      <!-- Balance Column -->
+      <ng-container matColumnDef="balance">
+          <th mat-header-cell *matHeaderCellDef> Balance </th>
+          <td mat-cell *matCellDef="let account"> {{account.balance}} </td>
+      </ng-container>
+
+      <!-- Delete Column -->
+      <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let account">
+              <button mat-icon-button color="warn" (click)="deleteAccount($event, account.id)">
+                  <mat-icon aria-label="Delete account">delete</mat-icon>
+              </button>
+          </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToDetails(row.id)"></tr>
+  </table>
+</div>
+
+<button mat-raised-button color="primary" (click)="openCreateAccountDialog()">Create Account</button>
+
+

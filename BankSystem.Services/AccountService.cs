@@ -14,6 +14,14 @@
         return account;
     }
 
+    public IEnumerable<Account> GetAccounts(Guid? userId)
+    {
+        if (userId.HasValue)
+            return _context.Accounts.Where(a => a.UserId == userId.Value).ToList();
+
+        return _context.Accounts.ToList();
+    }
+
     public Guid CreateAccount(Guid userId, double balance)
     {
         var account = new Account { Balance = balance > 100 ? balance : 100, UserId = userId};

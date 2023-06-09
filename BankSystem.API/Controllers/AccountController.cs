@@ -29,8 +29,22 @@ public class AccountController : ControllerBase
         }
     }
 
+    [HttpGet]
+    public ActionResult<Account> GetAccounts([FromQuery]Guid? userId)
+    {
+        try
+        {
+            var accounts = _accountService.GetAccounts(userId);
+            return Ok(accounts);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
     [HttpPost]
-    public ActionResult<Guid> CreateAccount(CreateAccountParams? model)
+    public ActionResult<Guid> CreateAccount(CreateAccountParams model)
     {
         try
         {
