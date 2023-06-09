@@ -12,3 +12,6 @@ ng serve
 In another:
 cd BankSystem.API
 dotnet run
+
+Navigate to localhost:4200 to view UI.
+Navigate to localhost:5071/swagger to view Swagger
