@@ -1,2 +1,14 @@
 This is a sample .net 7 + angular 16 and materia ui app to showcase sample bank app where user creates accounts, can deposit, withdraw money from it and can remove them.
 Backend comes with couple e2e tests to cover business scenarios.
+
+To start, open 2 cmd instances in root folder.
+Make sure Angular CLI and .net 7 are installed
+
+In one, execute:
+cd ui
+yarn
+ng serve
+
+In another:
+cd BankSystem.API
+dotnet run
